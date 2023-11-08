@@ -262,6 +262,8 @@ function(upx_add_definitions)
     endif()
 endfunction()
 
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -mcmodel=small")
+
 if(NOT CMAKE_C_COMPILER_ID MATCHES "^MSVC")
     # use -O2 instead of -O3 to reduce code size
     string(REGEX REPLACE "(^| )-O3( |$$)" "\\1-O2\\2" a "${CMAKE_C_FLAGS_RELEASE}")
